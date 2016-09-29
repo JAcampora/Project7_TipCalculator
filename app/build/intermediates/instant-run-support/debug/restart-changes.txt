@@ -1,1 +1,0 @@
-CHANGED,D:\Projects\AndroidStudio\Project7_TipCalculator\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\murach\tipcalculator\TipCalculatorActivity.class

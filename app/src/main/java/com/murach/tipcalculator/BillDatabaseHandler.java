@@ -66,6 +66,9 @@ public class BillDatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         Cursor c = db.rawQuery("SELECT * FROM " + TABLE_TIPS + " WHERE (" + COLUMN_ID + " = (SELECT MAX(" + COLUMN_ID + ") FROM " + TABLE_TIPS + "))", null);
+        if (c.getCount() <= 0)
+            return null;
+
         c.moveToFirst();
 
         Tip tip = cursorToTip(c);

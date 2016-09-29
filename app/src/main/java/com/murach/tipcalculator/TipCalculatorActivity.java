@@ -21,7 +21,7 @@ import android.content.SharedPreferences.Editor;
 public class TipCalculatorActivity extends Activity 
 implements OnEditorActionListener, OnClickListener {
 
-    private static String TAG = "com.murach.tipcalculator";
+    private static String TAG = "TIP_CALCULATOR"; // Warned me to not have more than 23 characters
 
     // define variables for the widgets
     private EditText billAmountEditText;
@@ -91,13 +91,15 @@ implements OnEditorActionListener, OnClickListener {
 //        billdb.addTip (new Tip(0, 15.56f, 0.05f));
 //        billdb.addTip (new Tip(0, 53.72f, 0.20f));
 
-        Log.d(TAG, "Last Tip Entry: " + billdb.getLastTip().getDateStringFormatted());
-        for (Tip tip : billdb.getTips()) {
-            Log.d(TAG, "ID: " + tip.getId() + "\n" +
-                    "\tDate: " + tip.getDateStringFormatted() +
-                    "\tAmount: " + tip.getBillAmountFormatted() +
-                    "\tTip Percent: " + tip.getTipPercentFormatted()
-            );
+        if (billdb.getLastTip() != null) {
+            Log.d(TAG, "Last Tip Entry: " + billdb.getLastTip().getDateStringFormatted());
+            for (Tip tip : billdb.getTips()) {
+                Log.d(TAG, "ID: " + tip.getId() + "\n" +
+                        "\tDate: " + tip.getDateStringFormatted() +
+                        "\tAmount: " + tip.getBillAmountFormatted() +
+                        "\tTip Percent: " + tip.getTipPercentFormatted()
+                );
+            }
         }
 
         // calculate and display
